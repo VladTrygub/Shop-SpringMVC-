@@ -10,14 +10,11 @@ import org.springframework.stereotype.Repository;
 import com.my.shop.model.Category;
 
 @Repository
-public class CategoryDaoImpl implements CategoryDao {
-	
-	@Autowired
-	private SessionFactory sessionFactory;
+public class CategoryDaoImpl extends AbstractDao implements CategoryDao {
 
 	@Override
 	public List<Category> getAllCategories() {
-		Session session = sessionFactory.getCurrentSession(); 
+		Session session = getSession(); 
 		session.beginTransaction();
 		List<Category> result = session.createCriteria(Category.class).list();
 		session.getTransaction().commit();

@@ -11,14 +11,11 @@ import com.my.shop.model.Category;
 import com.my.shop.model.Item;
 
 @Repository
-public class ItemDaoImpl implements ItemDao {
-	
-	@Autowired
-	private SessionFactory sessionFactory;
+public class ItemDaoImpl extends AbstractDao implements ItemDao {
 
 	@Override
 	public List<Item> getAllItems() {
-		Session session = sessionFactory.getCurrentSession(); 
+		Session session = getSession(); 
 		session.beginTransaction();
 		List<Item> result = session.createCriteria(Item.class).list();
 		session.getTransaction().commit();
