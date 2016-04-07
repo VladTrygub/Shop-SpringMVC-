@@ -44,7 +44,7 @@ public class HomeController {
 		return new ModelAndView("category", "categories", categories);
 	}
 	
-//	@RequestMapping(value = "/item", method = Req)
+	@RequestMapping(value = "/item", method = RequestMethod.GET)
 	public ModelAndView item() {
 		List<Item> items = itemService.getAllItems();
 		return new ModelAndView("item", "items", items);
