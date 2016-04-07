@@ -29,8 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerDao.createCustomer(customer);
 	}
 
 	@Override
