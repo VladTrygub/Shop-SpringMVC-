@@ -13,18 +13,19 @@ import com.my.shop.model.Category;
 import com.my.shop.model.Item;
 import com.my.shop.service.CategoryService;
 import com.my.shop.service.CategoryServiceImpl;
+import com.my.shop.service.ItemService;
 
 public class TestItemService {
 
 	@Test
 	public void test() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("rootContext.xml");
-		
-		List<Item> categories = categoryService.getAllCategories();
-		for (Category category : categories) {
-			System.out.println(category.getName());
+		ItemService itemService = (ItemService) context.getBean("itemService"); 
+		List<Item> items = itemService.getAllItems();
+		for (Item item : items) {
+			System.out.println(item.getName());
 		}
-		assertEquals(3, categories.size());
+		assertFalse(items.isEmpty());
 	}
 
 }
