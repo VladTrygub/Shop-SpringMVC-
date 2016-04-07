@@ -6,5 +6,7 @@
 </head>
 <body>
 	<a href="category">categories</a>
+	<br>
+	<a href="item">items</a>
 </body>
 </html>
