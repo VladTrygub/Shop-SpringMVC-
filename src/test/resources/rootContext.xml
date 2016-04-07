@@ -43,10 +43,9 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<!-- 
-	<bean id="itemDao" class="com.my.shop.dao.ItemDao"/>
-	<bean id="itemService" class="com.my.shop.service.ItemService"/>
-	 -->
+	<bean id="itemDao" class="com.my.shop.dao.ItemDaoImpl"/>
+	<bean id="itemService" class="com.my.shop.service.ItemServiceImpl"/>
+	
 	<bean id="categoryDao" class="com.my.shop.dao.CategoryDaoImpl"/>
 	<bean id="categoryService" class="com.my.shop.service.CategoryServiceImpl"/>
 	
