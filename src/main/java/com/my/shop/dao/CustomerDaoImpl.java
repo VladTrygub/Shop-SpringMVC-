@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.my.shop.model.Customer;
 
@@ -19,7 +22,9 @@ public class CustomerDaoImpl extends AbstractDao implements CustomerDao {
 	public List<Customer> getAllCustomers() {
 		Session session = getSession();
 		session.beginTransaction();
+		
 		List<Customer> customers = session.createCriteria(Customer.class).list();
+		
 		session.getTransaction().commit();
 		return customers;
 	}
@@ -27,16 +32,25 @@ public class CustomerDaoImpl extends AbstractDao implements CustomerDao {
 	@Override
 	public Customer getCustomerByID(long id) {
 		Session session = getSession();
-		Criteria criteria = session.createCriteria(Customer.class);
-		criteria.add(Expression.gt("id", id));
-		Customer customer = (Customer) criteria.uniqueResult();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("from Customer c where c.id = ?");
+		query.setLong(0, id);
+		Customer customer = (Customer) query.uniqueResult();
+		
+		session.getTransaction().commit();
 		return customer;
 	}
 
 	@Override
 	public Customer createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = getSession();
+		session.beginTransaction();
+		
+		session.save(customer);
+		
+		session.getTransaction().commit();
+		return customer;
 	}
 
 	@Override
