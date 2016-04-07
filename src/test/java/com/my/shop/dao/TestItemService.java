@@ -18,14 +18,12 @@ import com.my.shop.service.ItemService;
 public class TestItemService {
 
 	@Test
-	public void test() {
+	public void testGetAllItems() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("rootContext.xml");
 		ItemService itemService = (ItemService) context.getBean("itemService"); 
 		List<Item> items = itemService.getAllItems();
-		for (Item item : items) {
-			System.out.println(item.getName());
-		}
 		assertFalse(items.isEmpty());
+		assertNotNull(items);
 	}
 
 }

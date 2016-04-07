@@ -16,14 +16,12 @@ import com.my.shop.service.CategoryServiceImpl;
 public class TestCategoryService {
 
 	@Test
-	public void test() {
+	public void testGetAllCategories() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("rootContext.xml");
 		CategoryService categoryService = (CategoryService) context.getBean("categoryService");
 		List<Category> categories = categoryService.getAllCategories();
-		for (Category category : categories) {
-			System.out.println(category.getName());
-		}
 		assertFalse(categories.isEmpty());
+		assertNotNull(categories);
 	}
 
 }
