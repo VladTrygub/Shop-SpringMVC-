@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.shop.model.Category;
+import com.my.shop.model.Item;
 import com.my.shop.service.CategoryService;
+import com.my.shop.service.ItemService;
 
 /**
  * Handles requests for the application home page.
@@ -27,10 +29,9 @@ public class HomeController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private ItemService itemService;
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		logger.info("\n\nWelcome home!\n");
@@ -41,6 +42,12 @@ public class HomeController {
 	public ModelAndView category() {
 		List<Category> categories = categoryService.getAllCategories();
 		return new ModelAndView("category", "categories", categories);
+	}
+	
+//	@RequestMapping(value = "/item", method = Req)
+	public ModelAndView item() {
+		List<Item> items = itemService.getAllItems();
+		return new ModelAndView("item", "items", items);
 	}
 	
 }
