@@ -49,4 +49,7 @@
 	<bean id="categoryDao" class="com.my.shop.dao.CategoryDaoImpl"/>
 	<bean id="categoryService" class="com.my.shop.service.CategoryServiceImpl"/>
 	
+	<bean id="customerDao" class="com.my.shop.dao.CustomerDaoImpl"/>
+	<bean id="customerService" class="com.my.shop.service.CustomerServiceImpl"/>
+	
 </beans>
