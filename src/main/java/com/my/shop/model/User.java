@@ -8,20 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "users")
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "login")
+	@Column(name = "login", length = 20)
 	private String login;
-	@Column(name = "password")
+	@Column(name = "password", length = 20)
 	private String password;
+	@Column(name = "role", length = 10)
+	private String role;
 	
-	public Customer() { }
+	public User() { }
 	
-	public Customer(long id, String login, String password) {
+	public User(long id, String login, String password) {
 		this.id = id;
 		this.login = login;
 		this.password = password;
@@ -44,11 +46,18 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", login=" + login + 
-				", password=" + password + "]";
+		return "User {\nid=" + id + ", \nlogin=" + login + 
+				", \npassword=" + password + 
+				", \nrole=" + role + "}";
 	}
 	
 }

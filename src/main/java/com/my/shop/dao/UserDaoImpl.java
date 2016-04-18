@@ -13,54 +13,54 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.my.shop.model.Customer;
+import com.my.shop.model.User;
 
 @Repository
-public class CustomerDaoImpl extends AbstractDao implements CustomerDao {
+public class UserDaoImpl extends AbstractDao implements UserDao {
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public List<User> getAllUsers() {
 		Session session = getSession();
 		session.beginTransaction();
 		
-		List<Customer> customers = session.createCriteria(Customer.class).list();
+		List<User> users = session.createCriteria(User.class).list();
 		
 		session.getTransaction().commit();
-		return customers;
+		return users;
 	}
 
 	@Override
-	public Customer getCustomerByID(long id) {
+	public User getUserByID(long id) {
 		Session session = getSession();
 		session.beginTransaction();
 		
-		Query query = session.createQuery("from Customer c where c.id = ?");
+		Query query = session.createQuery("from User u where u.id = ?");
 		query.setLong(0, id);
-		Customer customer = (Customer) query.uniqueResult();
+		User user = (User) query.uniqueResult();
 		
 		session.getTransaction().commit();
-		return customer;
+		return user;
 	}
 
 	@Override
-	public Customer createCustomer(Customer customer) {
+	public User createUser(User user) {
 		Session session = getSession();
 		session.beginTransaction();
 		
-		session.save(customer);
+		session.save(user);
 		
 		session.getTransaction().commit();
-		return customer;
+		return user;
 	}
 
 	@Override
-	public Customer updateCustomer(long id, Customer customer) {
+	public User updateUser(long id, User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Customer deleteCustomer(long id) {
+	public User deleteUser(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

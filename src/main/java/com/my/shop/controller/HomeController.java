@@ -1,4 +1,4 @@
-package com.my.shop;
+package com.my.shop.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
