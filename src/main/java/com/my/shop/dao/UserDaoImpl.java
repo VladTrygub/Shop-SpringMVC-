@@ -52,7 +52,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 		User user = (User) query.uniqueResult();
 		
 		session.getTransaction().commit();
-		return null;
+		return user;
 	}
 
 	@Override

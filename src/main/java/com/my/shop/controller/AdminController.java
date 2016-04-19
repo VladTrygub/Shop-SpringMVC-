@@ -35,6 +35,11 @@ public class AdminController {
 		model.addAttribute("user", getPrincipal());
 		return "admin";
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage(ModelMap model) {
+		return "login";
+	}
 
 	private String getPrincipal() {
 		String userName = null;

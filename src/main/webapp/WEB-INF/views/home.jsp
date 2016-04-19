@@ -8,5 +8,9 @@
 	<a href="category">categories</a>
 	<br>
 	<a href="item">items</a>
+	<br>
+	<a href="login">login</a>
+	<br>
+	<a href="admin">admin</a>
 </body>
 </html>
