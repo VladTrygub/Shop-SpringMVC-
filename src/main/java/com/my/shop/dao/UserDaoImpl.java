@@ -30,7 +30,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 	}
 
 	@Override
-	public User getUserByID(long id) {
+	public User findUserByID(long id) {
 		Session session = getSession();
 		session.beginTransaction();
 		
@@ -40,6 +40,19 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 		
 		session.getTransaction().commit();
 		return user;
+	}
+
+	@Override
+	public User findUserByLogin(String login) {
+		Session session = getSession();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("from User u where u.login = ?");
+		query.setString(0, login);
+		User user = (User) query.uniqueResult();
+		
+		session.getTransaction().commit();
+		return null;
 	}
 
 	@Override

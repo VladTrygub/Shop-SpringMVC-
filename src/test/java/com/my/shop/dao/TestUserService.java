@@ -37,9 +37,17 @@ public class TestUserService {
 	
 	@Test
 	@Ignore
-	public void testGetUserByID() {
-		User user = userService.getUserByID(1);
+	public void testFindUserByID() {
+		User user = userService.findUserByID(1);
 		assertEquals("log1", user.getLogin());
+	}
+	
+	@Test
+//	@Ignore
+	public void testFindUserByLogin() {
+		User user = userService.findUserByLogin("log3");
+		assertEquals("log3", user.getLogin());
+		assertEquals("ROLE_ADMIN", user.getRole());
 	}
 	
 	@Test

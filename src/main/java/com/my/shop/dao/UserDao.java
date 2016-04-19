@@ -7,7 +7,8 @@ import com.my.shop.model.User;
 public interface UserDao {
 	
 	List<User> getAllUsers();
-	User getUserByID(long id);
+	User findUserByID(long id);
+	User findUserByLogin(String login);
 	User createUser(User user);
 	User updateUser(long id, User user);
 	User deleteUser(long id);

@@ -23,8 +23,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public User getUserByID(long id) {
-		return userDao.getUserByID(id);
+	public User findUserByID(long id) {
+		return userDao.findUserByID(id);
+	}
+
+	@Override
+	public User findUserByLogin(String login) {
+		return userDao.findUserByLogin(login);
 	}
 
 	@Override
