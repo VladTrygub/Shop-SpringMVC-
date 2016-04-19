@@ -1,0 +1,10 @@
+body {
+	font-size: 12px;
+	color: #868585;
+	background-color: #fdfcfb;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
