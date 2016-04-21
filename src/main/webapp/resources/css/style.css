@@ -8,3 +8,33 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+header {
+	margin: 100px 0 0 80px;
+}
+
+.menu {
+	background: #fefefe;
+	border: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .19);
+	padding: 15px 0;
+}
+
+.navbar-brand {
+	padding-right: 80px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #8d8c8c;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav > li .active-link > a {
+	border-bottom: 1px solid #d42819;
+}
+
+.navbar-default .navbar-nav:not(.icons) > li > a:hover {
+	border-bottom: 1px solid #d42819;
+	color: #8d8c8c;
+}
