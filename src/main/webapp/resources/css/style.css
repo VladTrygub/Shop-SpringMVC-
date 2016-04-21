@@ -18,6 +18,7 @@ header {
 	border: 0;
 	box-shadow: 0 0 5px rgba(0, 0, 0, .19);
 	padding: 15px 0;
+	margin-right: 100px;
 }
 
 .navbar-brand {
@@ -30,7 +31,8 @@ header {
 	text-transform: uppercase;
 }
 
-.navbar-default .navbar-nav > li .active-link > a {
+.navbar-default .navbar-nav > li.active-link > a {
+	color: red;
 	border-bottom: 1px solid #d42819;
 }
 
