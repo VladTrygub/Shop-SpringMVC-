@@ -30,7 +30,7 @@
     		-->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       		<ul class="nav navbar-nav">
-      	  	<li><a href="/">home</a></li>
+      	  	<li><a href="">home</a></li>
       	  	<li><a href="category">categories</a></li>
       	  	<li class="active-link"><a href="item">items</a></li>
       	  	<li><a href="#">support</a></li>
@@ -48,16 +48,30 @@
  			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-	
-	<c:if test="${not empty items}">
-		<ul>
-			<c:forEach var="item" items="${items}">
-				<li>${item.name}</li>
-				<li>${item.category.name}</li>
-			</c:forEach>
-		</ul>
-	</c:if>
 
+  <div class="content">
+    <div class="container">
+      <div class="slogan">
+        <h1>All <span>Items</span> Below</h1>
+      </div>
+      <c:if test="${not empty items}">    
+        <div class="row">
+          <div class="card-row clearfix">
+            <c:forEach var="item" items="${items}">
+              <div class="col-md-3">
+                <div class="card">
+                  <h4>${item.name}</h4>
+                  <p>${item.category.name}</p>
+                  <a href="#"><img src="#" height="173" width="218"></a>
+                </div>
+              </div>
+            </c:forEach>
+          </div>
+        </div>
+      </c:if>
+    </div>
+  </div>
+			
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="/resources/js/bootstrap.min.js"></script>
 </body>

@@ -30,7 +30,7 @@
     		-->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       		<ul class="nav navbar-nav">
-      	  	<li><a href="/">home</a></li>
+      	  	<li><a href="">home</a></li>
       	  	<li class="active-link"><a href="category">categories</a></li>
       	  	<li><a href="item">items</a></li>
       	  	<li><a href="#">support</a></li>
