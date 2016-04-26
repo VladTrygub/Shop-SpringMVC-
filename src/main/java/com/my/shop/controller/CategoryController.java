@@ -1,9 +1,6 @@
 package com.my.shop.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +20,16 @@ import com.my.shop.service.ItemService;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class CategoryController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		logger.info("\n\nWelcome home!\n");
-		return "home";
+	@Autowired
+	private CategoryService categoryService;
+	
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	public ModelAndView category() {
+		List<Category> categories = categoryService.getAllCategories();
+		return new ModelAndView("category", "categories", categories);
 	}
 }
