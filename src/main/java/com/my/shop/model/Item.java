@@ -3,10 +3,13 @@ package com.my.shop.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,17 +30,11 @@ public class Item {
 	private int cent;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Category category;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "image_id")
+	private Image image;
 	
 	public Item() {	}
-
-	public Item(long id, String name, String title, int dollar, int cent, Category category) {
-		this.id = id;
-		this.name = name;
-		this.title = title;
-		this.dollar = dollar;
-		this.cent = cent;
-		this.category = category;
-	}
 
 	public long getId() {
 		return id;
@@ -87,10 +84,21 @@ public class Item {
 		this.category = category;
 	}
 
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
-		return "Item {\nid : " + id + ", \nname=" + name + 
-				", \ntitle : " + title + ", \nprice : " + dollar + '.' + cent + 
+		return "Item {" + 
+				"\nid : " + id + 
+				", \nname=" + name + 
+				", \ntitle : " + title + 
+				", \nprice : " + dollar + '.' + cent + 
 				", \ncategory : " + category + "\n}";
 	}
 	

@@ -32,4 +32,10 @@ public class HomeController {
 		logger.info("\n\nWelcome home!\n");
 		return "home";
 	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home2() {
+		logger.info("\n\nWelcome home!\n");
+		return "home";
+	}
 }

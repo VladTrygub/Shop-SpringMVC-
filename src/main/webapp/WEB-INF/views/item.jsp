@@ -30,7 +30,7 @@
     		-->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       		<ul class="nav navbar-nav">
-      	  	<li><a href="">home</a></li>
+      	  	<li><a href="home">home</a></li>
       	  	<li><a href="category">categories</a></li>
       	  	<li class="active-link"><a href="item">items</a></li>
       	  	<li><a href="#">support</a></li>
@@ -60,9 +60,11 @@
             <c:forEach var="item" items="${items}">
               <div class="col-md-3">
                 <div class="card">
-                  <h4>${item.name}</h4>
-                  <p>${item.category.name}</p>
-                  <a href="#"><img src="#" height="173" width="218"></a>
+                  <h4>item.name : ${item.name}</h4>
+                  <p>item.category.name : ${item.category.name}</p>
+                  <p>item.id : ${item.id}</p>
+                  <p>item.image.name : ${item.image.name}</p>
+                  <a href="#"><img src='<c:url value="/resources/itemImages/${item.id}/${item.image.name}"/>' height="173" width="218"></a>
                 </div>
               </div>
             </c:forEach>
