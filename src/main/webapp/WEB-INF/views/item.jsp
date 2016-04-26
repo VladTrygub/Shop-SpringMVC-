@@ -73,6 +73,7 @@
   </div>
 			
   <script src="http://code.jquery.com/jquery.min.js"></script>
-  <script src="/resources/js/bootstrap.min.js"></script>
+  <script src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+  <script src='<c:url value="/resources/js/scrypt.js"/>'></script>
 </body>
 </html>
