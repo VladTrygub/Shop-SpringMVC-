@@ -1,9 +1,12 @@
 .settings/
 /target/
+/.idea/
 
 .classpath
 .project
 .tern-project
 .springBeans
+
+shop.iml
 
 
